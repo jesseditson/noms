@@ -125,3 +125,10 @@ func (r *Resolver) GetPath(str string) (datas.Database, types.Value, error) {
 	}
 	return sp.GetDatabase(), sp.GetValue(), nil
 }
+
+// Resolve a string value to a spec. If a config is present,
+//  - if no db spec is present, assume the default db
+//  - if the db spec is an alias, replace it
+func (r *Resolver) GetSpec(str string) (spec.Spec, error) {
+	return spec.ForPath(r.verbose(str, r.ResolvePathSpec(str)))
+}

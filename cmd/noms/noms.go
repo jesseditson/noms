@@ -39,6 +39,7 @@ type command func(*kingpin.Application) (*kingpin.CmdClause, commandHandler)
 
 var kingpinCommands = []command{
 	nomsBlob,
+	nomsStruct,
 }
 
 var actions = []string{
